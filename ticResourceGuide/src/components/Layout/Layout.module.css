@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: sans-serif;
+  }
+  .header, .footer {
+    background-color: #f0f0f0;
+    padding: 1em;
+    text-align: center;
+  }
+  .main {
+    flex: 1;
+    padding: 1em;
+  }

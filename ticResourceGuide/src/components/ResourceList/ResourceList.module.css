@@ -1,0 +1,11 @@
+.resourceList {
+    text-align: center;
+  }
+  .filterSection {
+    margin-bottom: 1em;
+  }
+  .cardsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
