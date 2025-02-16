@@ -8,6 +8,7 @@ const ResourceCard = ({ resource }) => {
 
   const openModal = () => setShowModal(true);
   const closeModal = () => setShowModal(false);
+
   const openInNewWindow = () => {
     if (resource.type === "video"){
         let url = resource.url.replace("embed/", "watch?v=")
@@ -18,6 +19,11 @@ const ResourceCard = ({ resource }) => {
     }
 }
 
+const isYouTubeVideo =
+resource.type.toLowerCase() === 'video' &&
+(resource.url.includes('youtube.com') || resource.url.includes('youtu.be'));
+
+
 
   return (
     <div className={styles.card}>
@@ -25,10 +31,10 @@ const ResourceCard = ({ resource }) => {
       <p><strong>Population:</strong> {resource.population}</p>
       <p><strong>Time:</strong> {resource.time} mins</p>
       <div className={styles.buttonGroup}>
-        <button onClick={openModal}>View Embedded</button>
+        {isYouTubeVideo && <button onClick={openModal}>View Embedded</button>}
         <button onClick={openInNewWindow}>Open in New Window</button>
       </div>
-      {showModal && (
+      {isYouTubeVideo && showModal && (
         <Modal onClose={closeModal}>
           <div className={styles.modalContent}>
             <h3>{resource.title}</h3>
