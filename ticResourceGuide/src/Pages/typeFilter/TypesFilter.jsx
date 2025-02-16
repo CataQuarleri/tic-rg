@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ResourceContext } from '../../context/ResourceContext';
 import styles from './TypesFilter.module.css';
+import Button from '../../components/Button/Button';
 
 const TypeFilter = () => {
   const navigate = useNavigate();
@@ -16,9 +17,9 @@ const TypeFilter = () => {
     <div className={styles.typeFilter}>
       <h2>Select the type of resource:</h2>
       <div className={styles.buttonGroup}>
-        <button onClick={() => handleTypeSelect('article')}>Articles</button>
-        <button onClick={() => handleTypeSelect('video')}>Videos</button>
-        <button onClick={() => handleTypeSelect('research')}>Research Papers</button>
+        <Button onClick={() => handleTypeSelect('article')}>Articles</Button>
+        <Button onClick={() => handleTypeSelect('video')}>Videos</Button>
+        <Button onClick={() => handleTypeSelect('research')}>Research Papers</Button>
       </div>
     </div>
   );

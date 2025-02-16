@@ -8,7 +8,9 @@ const Layout = ({ children }) => {
          <h1>TIC Resource Guide</h1>
       </header>
       <main className={styles.main}>
+        <div className={styles.content}>
          {children}
+        </div>
       </main>
       <footer className={styles.footer}>
          <p>&copy; 2025 TIC Resource Guide</p>

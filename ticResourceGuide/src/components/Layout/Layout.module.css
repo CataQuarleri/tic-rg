@@ -1,3 +1,5 @@
+@import '../../App.css';
+
 .container {
     display: flex;
     flex-direction: column;
@@ -5,11 +7,22 @@
     font-family: sans-serif;
   }
   .header, .footer {
-    background-color: #f0f0f0;
+    background-color: var(--secondary);
     padding: 1em;
     text-align: center;
   }
   .main {
     flex: 1;
     padding: 1em;
+  }
+
+  @media  (min-width: 60rem){
+    .main {
+    background-color: var(--primary);
+
+    }
+    .content {
+      max-width: 40rem;
+      margin: auto;
+    }
   }

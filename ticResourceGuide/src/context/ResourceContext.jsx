@@ -1,9 +1,9 @@
 import React, { createContext, useState } from 'react';
-import { resources as initialResources } from '../data/resources';
+import { resources } from '../data/resources';
 
-export const ResourceContext = createContext();
+ export const ResourceContext = createContext();
 
-export const ResourceProvider = ({ children }) => {
+ export const ResourceProvider = ({ children }) => {
   // timeFilter is an object like {min: 0, max: 5} etc.
   const [timeFilter, setTimeFilter] = useState(null);
   // typeFilter will be one of "article", "video", "research"
@@ -13,7 +13,7 @@ export const ResourceProvider = ({ children }) => {
 
   return (
     <ResourceContext.Provider value={{
-      resources: initialResources,
+      resources: resources,
       timeFilter,
       setTimeFilter,
       typeFilter,

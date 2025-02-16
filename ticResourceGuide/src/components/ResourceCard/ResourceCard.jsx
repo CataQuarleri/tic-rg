@@ -2,12 +2,22 @@ import React, { useState } from 'react';
 import Modal from '../Modal/Modal';
 import styles from './ResourceCard.module.css';
 
+
 const ResourceCard = ({ resource }) => {
   const [showModal, setShowModal] = useState(false);
 
   const openModal = () => setShowModal(true);
   const closeModal = () => setShowModal(false);
-  const openInNewWindow = () => window.open(resource.url, '_blank');
+  const openInNewWindow = () => {
+    if (resource.type === "video"){
+        let url = resource.url.replace("embed/", "watch?v=")
+    window.open(url, '_blank');
+
+    }else {
+        window.open(resource.url, '_blank');
+    }
+}
+
 
   return (
     <div className={styles.card}>
@@ -25,7 +35,6 @@ const ResourceCard = ({ resource }) => {
             <iframe
               title={resource.title}
               src={resource.url}
-              frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
               className={styles.iframe}

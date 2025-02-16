@@ -1,13 +1,10 @@
 .intro {
     text-align: center;
   }
-  .buttonGroup {
+.buttonGroup {
     display: flex;
     flex-direction: column;
-    gap: 1em;
+    gap: 1.5em;
     margin-top: 1em;
-  }
-  button {
-    padding: 0.5em 1em;
-    font-size: 1rem;
-  }
+    align-items: center;
+}
