@@ -14,13 +14,6 @@ export const resources = [
       url: "https://traumainformedoregon.org/wp-content/uploads/2016/01/What-is-Trauma-Informed-Care.pdf"
     },
     {
-      population: "general",
-      time: 4,
-      title: "Understanding the Importance of Trauma-Informed Care",
-      type: "article",
-      url: "https://nnedv.org/spotlight_on/understanding-importance-trauma-informed-care/"
-    },
-    {
       population: "healthcare",
       time: 7,
       title: "What is Trauma Informed Care",
@@ -198,7 +191,7 @@ export const resources = [
     {
       population: "general",
       time: 4,
-      title: "",
+      title: "Center for Health Care Strategies - What Is Trauma Informed Care?",
       type: "video",
       url: "https://www.youtube.com/watch?v=fWken5DsJcw&t=2s"
     },
@@ -292,5 +285,117 @@ export const resources = [
       title: "3 Pillars & Principles of a Trauma-Informed Approach    ",
       type: "article",
       url: "https://ctrinstitute.com/blog/trauma-informed/"
+    },
+    {
+      population: "youth",
+      time: 4,
+      title: "Getting Started With Trauma Informed Care",
+      type: "video",
+      url: "https://www.youtube.com/watch?v=eWIV3wWygS4"
+    },
+    {
+      population: "general",
+      time: 5,
+      title: "Trauma-Informed Care Champions: From Treaters to Healers - YouTube",
+      type: "video",
+      url: "https://www.youtube.com/watch?v=8wxnzVib2p4"
+    },
+    {
+      population: "general",
+      time: ,
+      title: "Los campeones de la atención informada de traumas: de tratantes a sanadores. ",
+      type: "video",
+      url: "https://www.youtube.com/watch?v=TKh2P4eakBk"
+    },
+    {
+      population: "general",
+      time: 56,
+      title: "Seattle Children's Hospital  - Trauma Informed Care",
+      type: "video",
+      url: "https://www.youtube.com/watch?v=a03zdkjyszc"
+    },
+    {
+      population: "general",
+      time: 13,
+      title: "The paradox of trauma-informed care; Vicky Kelly:  TEDxWilmington",
+      type: "video",
+      url: "https://www.youtube.com/watch?v=jFdn9479U3s"
+    },
+    {
+      population: "general",
+      time: 12,
+      title: "How Trauma Informed Care Saved My Life | Adrienne Rouan | TEDxDelthorneWomen",
+      type: "video",
+      url: "https://www.youtube.com/watch?v=bOoNIpr-7Tk"
+    },
+    {
+      population: "general",
+      time: 17,
+      title: "Trauma Informed Principles & Practices",
+      type: "video",
+      url: "https://www.youtube.com/watch?v=ANRlWfuWOGQ"
+    },
+    {
+      population: "general",
+      time: 2,
+      title: "Trauma Informed Practice",
+      type: "video",
+      url: "https://www.youtube.com/watch?v=mI5-P3P7IXo"
+    },
+    {
+      population: "general",
+      time: 2,
+      title: "What Is Trauma Informed Care?",
+      type: "video",
+      url: "https://www.youtube.com/watch?v=AnBEROaeiak"
+    },
+      {
+      population: "general",
+      time: 12,
+      title: "TREES An Introduction to Trauma Informed Care ",
+      type: "video",
+      url: "https://www.youtube.com/watch?v=k4vEbuKL9I0"
+    },
+    {
+      population: "general",
+      time: 2,
+      title: "Trauma informed care can help improve patient outcomes ",
+      type: "video",
+      url: "https://www.youtube.com/watch?v=bjdQg9AXfhM"
+    },
+    {
+      population: "general",
+      time: 8,
+      title: "Understanding the Core Principles of Trauma Informed Care ",
+      type: "video",
+      url: "https://www.youtube.com/watch?v=_3XW3s-ldsU"
+    },
+    {
+      population: "general",
+      time: 3,
+      title: "3 Trauma-Informed Practices Backed By Science ",
+      type: "video",
+      url: "https://www.youtube.com/watch?v=Gv-_SxltpPY"
+    },
+    {
+      population: "general",
+      time: 11,
+      title: "Trauma Informed Care In Social Work Practice ",
+      type: "video",
+      url: "https://www.youtube.com/watch?v=aNDM4FHRfcI&pp=ygUVdHJhdW1hIGluZm9ybWVkIGNhcmUg"
+    },
+    {
+      population: "general",
+      time: 52,
+      title: "Webinar: Trauma-informed healthcare: Where are we at? Findings from the TAP CARE Study. ",
+      type: "video",
+      url: "https://www.youtube.com/watch?v=oNohtuM3v40"
+    },
+    {
+      population: "general",
+      time: 2,
+      title: "Building Lifelong Resiliency through Trauma-Informed Care for Children ",
+      type: "video",
+      url: "https://www.youtube.com/watch?v=R8EBbaGLVAs"
     }
 ];

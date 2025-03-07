@@ -20,7 +20,7 @@ const IntroPage = () => {
       <p>Select the amount of time you have available:</p>
       <div className={styles.buttonGroup}>
         <Button onClick={() => handleTimeSelect(0, 5)}>Less than 5 mins</Button>
-        <Button onClick={() => handleTimeSelect(5, 20)}>Less than 20 mins</Button>
+        <Button onClick={() => handleTimeSelect(0, 20)}>Less than 20 mins</Button>
         <Button onClick={() => handleTimeSelect(20, Infinity)}>More than 20 mins</Button>
       </div>
     </div>

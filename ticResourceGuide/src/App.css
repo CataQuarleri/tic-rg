@@ -3,4 +3,6 @@ html {
   --secondary: rgb(199, 238, 255);
   --accent: #0077C0;
   --text: #1D242B;
+  --header-font: "Merriweather";
+  --text-font: "Lato"
 }

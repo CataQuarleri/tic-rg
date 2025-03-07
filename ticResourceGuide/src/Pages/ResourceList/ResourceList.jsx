@@ -35,6 +35,7 @@ const ResourceList = () => {
 
 	return (
 		<div className={styles.resourceList}>
+			<p>Time: Less than {timeFilter.max}. Type: {typeFilter}</p>
 			<h2>Resources</h2>
 			<div className={styles.filterSection}>
 				<label htmlFor='population'>Filter by Population:</label>
@@ -61,7 +62,7 @@ const ResourceList = () => {
 						/>
 					))
 				) : (
-					<p>No resources match your filters.</p>
+					<p>There are no resources of less than {timeFilter.max} in the {typeFilter} category</p>
 				)}
 			</div>
 		</div>
