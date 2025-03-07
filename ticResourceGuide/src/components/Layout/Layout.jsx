@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { ResourceContext } from '../../context/ResourceContext';
 import styles from './Layout.module.css';
 
 const Layout = ({ children }) => {
+  const navigate = useNavigate();
+  const { clearFilters } = useContext(ResourceContext);
+
+  const handleGoHome = () => {
+    clearFilters();
+    navigate('/');
+  };
+
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-         <h1>TIC Resource Guide</h1>
+         <h1 onClick={handleGoHome}>TIC Resource Guide</h1>
       </header>
       <main className={styles.main}>
         <div className={styles.content}>

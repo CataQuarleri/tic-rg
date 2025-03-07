@@ -6,6 +6,9 @@
     min-height: 100vh;
     font-family: var(--header-font);
   }
+  h1 {
+    cursor: pointer;
+  }
   .header, .footer {
     background-color: var(--secondary);
     padding: 1em;
