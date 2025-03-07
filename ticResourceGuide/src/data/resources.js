@@ -302,7 +302,7 @@ export const resources = [
     },
     {
       population: "general",
-      time: ,
+      time: 5,
       title: "Los campeones de la atención informada de traumas: de tratantes a sanadores. ",
       type: "video",
       url: "https://www.youtube.com/watch?v=TKh2P4eakBk"
