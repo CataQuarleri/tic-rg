@@ -8,3 +8,12 @@
     margin-top: 1em;
     align-items: center;
 }
+
+
+
+@media  (min-width: 60rem){
+  .hero {
+    display: flex;
+
+  }
+}

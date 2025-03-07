@@ -15,7 +15,7 @@ const Layout = ({ children }) => {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-         <h1 onClick={handleGoHome}>TIC Resource Guide</h1>
+         <h1 onClick={handleGoHome}>Trauma-Informed-Care Time</h1>
       </header>
       <main className={styles.main}>
         <div className={styles.content}>
