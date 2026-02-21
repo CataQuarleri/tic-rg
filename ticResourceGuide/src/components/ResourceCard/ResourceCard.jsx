@@ -35,6 +35,7 @@ const ResourceCard = ({ resource }) => {
               e.preventDefault();
               setIsSaved(!isSaved);
             }}
+            aria-label="Bookmark"
             className={`p-2 rounded-full transition-colors ${
               isSaved ? 'text-sage-500 bg-sage-50' : 'text-slate-300 hover:text-slate-500 hover:bg-slate-50'
             }`}

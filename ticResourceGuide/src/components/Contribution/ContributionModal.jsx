@@ -86,10 +86,11 @@ const ContributionModal = ({ isOpen, onClose }) => {
               </button>
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6" aria-label="Contribution Form">
               <input
                 type="text"
                 name="full_name_verification"
+                aria-label="Verification Field"
                 className="opacity-0 absolute -z-10"
                 tabIndex="-1"
                 autoComplete="off"
