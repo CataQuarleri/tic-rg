@@ -1,12 +1,100 @@
-html {
-  font-size: 16px;
-  font-family: var(--text-font)
+@import "tailwindcss";
+
+@theme {
+  --color-sage-50: #f4f7f2;
+  --color-sage-100: #e7eee3;
+  --color-sage-200: #d1decb;
+  --color-sage-300: #b1c6a8;
+  --color-sage-400: #8da681;
+  --color-sage-50: #f4f7f2;
+  --color-sage-500: #87a96b;
+  --color-sage-600: #688652;
+  --color-sage-700: #526942;
+  --color-sage-800: #435537;
+  --color-sage-900: #394730;
+
+  --color-dusk-50: #f2f5f8;
+  --color-dusk-100: #e1e9f0;
+  --color-dusk-200: #c8d7e4;
+  --color-dusk-300: #a2bbd2;
+  --color-dusk-400: #7599bc;
+  --color-dusk-500: #557ca4;
+  --color-dusk-600: #436387;
+  --color-dusk-700: #38516e;
+  --color-dusk-800: #31445b;
+  --color-dusk-900: #2c3b4d;
+
+  --radius-2xl: 1rem;
+  --radius-3xl: 1.5rem;
+  
+  --font-sans: "Inter", "system-ui", "sans-serif";
 }
+
+/* Calm Clinic CSS Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: #1a1a1a;
+  background-color: #f8fafc; /* slate-50 equivalent */
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 body {
   margin: 0;
-  padding: 0;
-  line-height: 1.5;
+  min-width: 320px;
+  min-height: 100vh;
 }
-button {
-  cursor: pointer;
+
+#root {
+  width: 100%;
 }

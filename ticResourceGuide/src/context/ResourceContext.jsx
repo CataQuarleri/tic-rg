@@ -1,9 +1,12 @@
 import React, { createContext, useState, useEffect } from 'react';
-import { resources as initialResources } from '../data/resources';
+import { useResources } from '../hooks/useResources';
 
 export const ResourceContext = createContext();
 
 export const ResourceProvider = ({ children }) => {
+  // Fetch from Supabase
+  const { data: dbResources, isLoading, error } = useResources();
+
   // Initialize state by reading from localStorage (if available)
   const [timeFilter, setTimeFilter] = useState(() => {
     const stored = localStorage.getItem("timeFilter");
@@ -40,14 +43,16 @@ export const ResourceProvider = ({ children }) => {
 
   return (
     <ResourceContext.Provider value={{
-      resources: initialResources,
+      resources: dbResources || [],
+      isLoading,
+      error,
       timeFilter,
       setTimeFilter,
       typeFilter,
       setTypeFilter,
       populationFilter,
       setPopulationFilter,
-      clearFilters,  // expose the clear function
+      clearFilters,
     }}>
       {children}
     </ResourceContext.Provider>
