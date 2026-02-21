@@ -18,12 +18,20 @@ const Layout = ({ children }) => {
 
   return (
     <div className="min-h-screen bg-slate-50 font-sans selection:bg-sage-100 selection:text-sage-900">
+      <a 
+        href="#main-content" 
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[60] focus:bg-white focus:px-4 focus:py-2 focus:rounded-xl focus:shadow-xl focus:font-bold focus:text-sage-600 focus:outline-none focus:ring-4 focus:ring-sage-100"
+      >
+        Skip to content
+      </a>
+
       <header className="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
-            <div 
+            <button 
               onClick={handleGoHome}
-              className="flex items-center gap-2 cursor-pointer group"
+              aria-label="TIC Guide Home"
+              className="flex items-center gap-2 cursor-pointer group focus-visible:ring-4 focus-visible:ring-sage-100 rounded-2xl outline-none"
             >
               <div className="bg-sage-500 p-2 rounded-2xl group-hover:rotate-12 transition-transform duration-300">
                 <Heart className="w-6 h-6 text-white fill-current" />
@@ -31,13 +39,13 @@ const Layout = ({ children }) => {
               <span className="text-xl font-black text-slate-900 tracking-tight">
                 TIC <span className="text-sage-500 underline decoration-sage-200 decoration-4 underline-offset-4">Guide</span>
               </span>
-            </div>
+            </button>
 
             <div className="flex items-center gap-3 sm:gap-6">
               {/* Public Contribution Button */}
               <button 
                 onClick={() => setIsContributionOpen(true)}
-                className="hidden md:flex items-center gap-2 text-sage-600 hover:text-sage-700 font-bold text-sm transition-colors"
+                className="hidden md:flex items-center gap-2 text-sage-600 hover:text-sage-700 font-bold text-sm transition-colors focus-visible:ring-2 focus-visible:ring-sage-100 rounded-lg outline-none"
               >
                 <PlusCircle className="w-4 h-4" />
                 Propose Resource
@@ -46,7 +54,7 @@ const Layout = ({ children }) => {
               {isAdmin && (
                 <Link 
                   to="/admin" 
-                  className="flex items-center gap-2 text-slate-500 hover:text-slate-800 font-bold text-sm transition-colors border-r border-slate-200 pr-4"
+                  className="flex items-center gap-2 text-slate-500 hover:text-slate-800 font-bold text-sm transition-colors border-r border-slate-200 pr-4 focus-visible:text-sage-600 outline-none"
                 >
                   <Settings className="w-4 h-4" />
                   Admin
@@ -63,7 +71,8 @@ const Layout = ({ children }) => {
                   </span>
                   <button 
                     onClick={logout}
-                    className="p-1.5 text-slate-400 hover:text-red-500 transition-colors"
+                    aria-label="Log out"
+                    className="p-1.5 text-slate-400 hover:text-red-500 transition-colors focus-visible:text-red-500 outline-none"
                   >
                     <LogOut className="w-4 h-4" />
                   </button>
@@ -71,7 +80,7 @@ const Layout = ({ children }) => {
               ) : (
                 <button 
                   onClick={() => navigate('/login')}
-                  className="bg-slate-900 text-white px-6 py-2.5 rounded-2xl text-sm font-bold hover:bg-sage-500 transition-all duration-300 shadow-sm hover:shadow-lg active:scale-95"
+                  className="bg-slate-900 text-white px-6 py-2.5 rounded-2xl text-sm font-bold hover:bg-sage-500 transition-all duration-300 shadow-sm hover:shadow-lg active:scale-95 focus-visible:ring-4 focus-visible:ring-sage-100 outline-none"
                 >
                   Sign In
                 </button>
@@ -81,7 +90,7 @@ const Layout = ({ children }) => {
         </div>
       </header>
 
-      <main>
+      <main id="main-content">
          {children}
       </main>
 

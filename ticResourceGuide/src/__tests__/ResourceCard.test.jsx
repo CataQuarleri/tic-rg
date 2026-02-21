@@ -1,11 +1,12 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
+import { axe } from 'vitest-axe';
 import ResourceCard from '../components/ResourceCard/ResourceCard';
 
 // Mock the ResourceViewer component
 vi.mock('../components/Modal/ResourceViewer', () => ({
   default: ({ isOpen, onClose }) => isOpen ? (
-    <div data-testid="mock-viewer">
+    <div data-testid="mock-viewer" role="dialog">
       <button onClick={onClose} aria-label="Close Viewer">Close Viewer</button>
     </div>
   ) : null
@@ -21,6 +22,12 @@ const mockResource = {
 };
 
 describe('ResourceCard Component', () => {
+  it('should have no accessibility violations', async () => {
+    const { container } = render(<ResourceCard resource={mockResource} />);
+    const results = await axe(container);
+    expect(results).toHaveNoViolations();
+  });
+
   it('renders resource information correctly', () => {
     render(<ResourceCard resource={mockResource} />);
     

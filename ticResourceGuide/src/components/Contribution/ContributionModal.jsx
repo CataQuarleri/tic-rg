@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { X, Send, Heart, CheckCircle2, Loader2 } from 'lucide-react';
 import { supabase } from '../../lib/supabaseClient';
+import { useFocusTrap } from '../../hooks/useFocusTrap';
 import Button from '../Button/Button';
 
 const ContributionModal = ({ isOpen, onClose }) => {
+  const containerRef = useFocusTrap(isOpen);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [formData, setFormData] = useState({
@@ -58,6 +60,10 @@ const ContributionModal = ({ isOpen, onClose }) => {
       />
 
       <div
+        ref={containerRef}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Propose a new resource"
         className="relative bg-white w-full max-w-xl rounded-[2.5rem] shadow-2xl overflow-hidden border border-slate-100 p-8 md:p-10 animate-scale-in"
       >
         {isSuccess ? (
@@ -91,6 +97,7 @@ const ContributionModal = ({ isOpen, onClose }) => {
                 type="text"
                 name="full_name_verification"
                 aria-label="Verification Field"
+                aria-hidden="true"
                 className="opacity-0 absolute -z-10"
                 tabIndex="-1"
                 autoComplete="off"

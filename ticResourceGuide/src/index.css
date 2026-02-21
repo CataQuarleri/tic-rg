@@ -5,24 +5,23 @@
   --color-sage-100: #e7eee3;
   --color-sage-200: #d1decb;
   --color-sage-300: #b1c6a8;
-  --color-sage-400: #8da681;
-  --color-sage-50: #f4f7f2;
-  --color-sage-500: #87a96b;
-  --color-sage-600: #688652;
-  --color-sage-700: #526942;
-  --color-sage-800: #435537;
-  --color-sage-900: #394730;
+  --color-sage-400: #718d63; /* Darkened for better contrast */
+  --color-sage-500: #5b7a44; /* Darkened for AA contrast (approx 4.6:1) */
+  --color-sage-600: #496136;
+  --color-sage-700: #3a4d2b;
+  --color-sage-800: #2d3c22;
+  --color-sage-900: #212c19;
 
   --color-dusk-50: #f2f5f8;
   --color-dusk-100: #e1e9f0;
   --color-dusk-200: #c8d7e4;
   --color-dusk-300: #a2bbd2;
-  --color-dusk-400: #7599bc;
-  --color-dusk-500: #557ca4;
-  --color-dusk-600: #436387;
-  --color-dusk-700: #38516e;
-  --color-dusk-800: #31445b;
-  --color-dusk-900: #2c3b4d;
+  --color-dusk-400: #557ca4; /* Darkened */
+  --color-dusk-500: #3e5a7a; /* Darkened for AA contrast */
+  --color-dusk-600: #314660;
+  --color-dusk-700: #26364a;
+  --color-dusk-800: #1c2736;
+  --color-dusk-900: #131a24;
 
   --radius-2xl: 1rem;
   --radius-3xl: 1.5rem;

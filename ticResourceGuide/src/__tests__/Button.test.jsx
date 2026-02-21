@@ -1,8 +1,15 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
+import { axe } from 'vitest-axe';
 import Button from '../components/Button/Button';
 
 describe('Button Component', () => {
+  it('should have no accessibility violations', async () => {
+    const { container } = render(<Button>Accessible Button</Button>);
+    const results = await axe(container);
+    expect(results).toHaveNoViolations();
+  });
+
   it('renders children correctly', () => {
     render(<Button>Click Me</Button>);
     expect(screen.getByText('Click Me')).toBeInTheDocument();

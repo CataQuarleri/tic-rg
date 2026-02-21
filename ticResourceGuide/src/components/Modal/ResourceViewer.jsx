@@ -1,7 +1,10 @@
 import React from 'react';
 import { X, ExternalLink, Maximize2, Info } from 'lucide-react';
+import { useFocusTrap } from '../../hooks/useFocusTrap';
 
 const ResourceViewer = ({ resource, isOpen, onClose }) => {
+  const containerRef = useFocusTrap(isOpen);
+
   if (!resource || !isOpen) return null;
 
   const isVideo = resource.type.toLowerCase() === 'video';
@@ -16,6 +19,10 @@ const ResourceViewer = ({ resource, isOpen, onClose }) => {
 
       {/* Modal Content */}
       <div
+        ref={containerRef}
+        role="dialog"
+        aria-modal="true"
+        aria-label={`Previewing: ${resource.title}`}
         className="relative bg-white w-full max-w-6xl h-[85vh] rounded-[2.5rem] shadow-2xl flex flex-col overflow-hidden border border-slate-100 animate-scale-in"
       >
         {/* Header */}

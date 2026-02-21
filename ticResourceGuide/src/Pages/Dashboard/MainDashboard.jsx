@@ -131,7 +131,8 @@ const populations = useMemo(() => {
                   <button
                     key={cat.id}
                     onClick={() => handleCategorySelect(cat.id)}
-                    className={`p-6 rounded-[2rem] border-2 transition-all duration-500 text-left flex flex-col gap-4 group relative overflow-hidden ${
+                    aria-pressed={typeFilter === cat.id}
+                    className={`p-6 rounded-[2rem] border-2 transition-all duration-500 text-left flex flex-col gap-4 group relative overflow-hidden focus-visible:ring-4 focus-visible:ring-sage-200 outline-none ${
                       typeFilter === cat.id 
                         ? 'border-sage-500 bg-white shadow-xl scale-[1.02]' 
                         : 'border-white bg-white hover:border-slate-100 shadow-sm hover:shadow-md'
@@ -139,7 +140,7 @@ const populations = useMemo(() => {
                   >
                     <div className={`w-12 h-12 rounded-2xl flex items-center justify-center text-2xl transition-colors duration-300 ${
                       typeFilter === cat.id ? 'bg-sage-100' : 'bg-slate-50'
-                    }`}>
+                    }`} aria-hidden="true">
                       {cat.icon}
                     </div>
                     <div className="flex justify-between items-center">
@@ -148,7 +149,7 @@ const populations = useMemo(() => {
                       </span>
                       <ArrowRight className={`w-5 h-5 transition-all duration-300 ${
                         typeFilter === cat.id ? 'text-sage-500 translate-x-0' : 'text-slate-300 -translate-x-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-0'
-                      }`} />
+                      }`} aria-hidden="true" />
                     </div>
                     {typeFilter === cat.id && (
                       <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-sage-500" />
@@ -163,10 +164,10 @@ const populations = useMemo(() => {
         {/* Step 3: Results */}
         <div ref={resultsSectionRef} className="scroll-mt-24">
           {showResults && (
-            <section className="space-y-8 pt-12 animate-fade-in-up">
+            <section className="space-y-8 pt-12 animate-fade-in-up" aria-live="polite">
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 bg-white p-6 rounded-[2rem] shadow-sm border border-slate-100">
                 <div className="flex items-center gap-4">
-                   <div className="bg-sage-50 p-3 rounded-2xl">
+                   <div className="bg-sage-50 p-3 rounded-2xl" aria-hidden="true">
                      <Filter className="w-5 h-5 text-sage-500" />
                    </div>
                    <div>
@@ -179,11 +180,12 @@ const populations = useMemo(() => {
 
                 <div className="flex items-center gap-3">
                   <div className="relative flex-1 md:flex-none">
-                    <Users className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+                    <Users className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" aria-hidden="true" />
                     <select
                       value={populationFilter}
                       onChange={(e) => setPopulationFilter(e.target.value)}
-                      className="pl-10 pr-8 py-2.5 bg-slate-50 border-none rounded-xl text-sm font-bold text-slate-600 appearance-none focus:ring-2 focus:ring-sage-200 transition-all cursor-pointer"
+                      aria-label="Filter by target population"
+                      className="pl-10 pr-8 py-2.5 bg-slate-50 border-none rounded-xl text-sm font-bold text-slate-600 appearance-none focus:ring-2 focus:ring-sage-200 transition-all cursor-pointer outline-none"
                     >
                       {populations.map(pop => (
                         <option key={pop} value={pop}>{pop.charAt(0).toUpperCase() + pop.slice(1)}</option>
@@ -193,7 +195,8 @@ const populations = useMemo(() => {
                   
                   <button 
                     onClick={resetFlow}
-                    className="p-2.5 bg-slate-50 text-slate-400 hover:text-sage-600 hover:bg-sage-50 rounded-xl transition-all"
+                    className="p-2.5 bg-slate-50 text-slate-400 hover:text-sage-600 hover:bg-sage-50 rounded-xl transition-all focus-visible:ring-2 focus-visible:ring-sage-200 outline-none"
+                    aria-label="Reset all filters"
                     title="Reset filters"
                   >
                     <RefreshCcw className="w-5 h-5" />

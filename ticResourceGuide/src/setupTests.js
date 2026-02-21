@@ -1,5 +1,9 @@
 import '@testing-library/jest-dom';
-import { vi } from 'vitest';
+import { vi, expect } from 'vitest';
+import * as axeMatchers from 'vitest-axe/matchers';
+import 'vitest-axe/extend-expect';
+
+expect.extend(axeMatchers);
 
 // Mock Supabase
 vi.mock('@supabase/supabase-js', () => ({

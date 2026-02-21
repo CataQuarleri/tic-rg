@@ -17,7 +17,8 @@ const TimeFilter = ({ selected, onSelect }) => {
           <button
             key={option.value}
             onClick={() => onSelect(option.value)}
-            className={`flex-1 py-3 px-4 rounded-2xl text-sm font-semibold transition-all duration-300 relative z-10 ${
+            aria-pressed={selected === option.value}
+            className={`flex-1 py-3 px-4 rounded-2xl text-sm font-semibold transition-all duration-300 relative z-10 focus-visible:ring-2 focus-visible:ring-sage-500 outline-none ${
               selected === option.value 
                 ? 'text-sage-700 bg-white shadow-sm' 
                 : 'text-slate-500 hover:text-slate-700'
