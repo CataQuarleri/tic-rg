@@ -61,37 +61,39 @@ const AdminDashboard = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-slate-50 py-8 md:py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto animate-fade-in-up">
-        <header className="flex flex-col md:flex-row md:items-center justify-between gap-8 mb-12">
-          <div className="space-y-1">
+        <header className="flex flex-col gap-8 mb-12">
+          <div className="space-y-1 text-center md:text-left">
              <div className="inline-flex items-center gap-2 px-3 py-1 bg-dusk-50 text-dusk-600 rounded-full text-xs font-black tracking-wider uppercase">
                <Settings className="w-3 h-3" />
                Administration
              </div>
-             <h1 className="text-4xl font-black text-slate-900 tracking-tight">Control Panel</h1>
-             <p className="text-slate-500 font-medium">Manage resource quality and safety.</p>
+             <h1 className="text-3xl md:text-4xl font-black text-slate-900 tracking-tight">Control Panel</h1>
+             <p className="text-slate-500 font-medium text-sm md:text-base">Manage resource quality and safety.</p>
           </div>
 
-          <nav className="flex bg-white p-1.5 rounded-3xl border border-slate-100 shadow-sm self-start">
-            {[
-              { id: 'review', label: 'Review Queue', icon: Inbox },
-              { id: 'add', label: 'New Resource', icon: PlusCircle },
-              { id: 'manage', label: 'Manage', icon: LayoutDashboard }
-            ].map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                className={`flex items-center gap-2 px-6 py-2.5 rounded-2xl text-sm font-bold transition-all ${
-                  activeTab === tab.id 
-                    ? 'bg-slate-900 text-white shadow-lg' 
-                    : 'text-slate-400 hover:text-slate-600'
-                }`}
-              >
-                <tab.icon className="w-4 h-4" />
-                {tab.label}
-              </button>
-            ))}
+          <nav className="flex overflow-x-auto no-scrollbar bg-white p-1.5 rounded-2xl md:rounded-3xl border border-slate-100 shadow-sm md:self-start">
+            <div className="flex min-w-full md:min-w-0">
+              {[
+                { id: 'review', label: 'Review', icon: Inbox },
+                { id: 'add', label: 'New', icon: PlusCircle },
+                { id: 'manage', label: 'Manage', icon: LayoutDashboard }
+              ].map((tab) => (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`flex items-center justify-center gap-2 flex-1 md:flex-none px-4 md:px-6 py-2.5 rounded-xl md:rounded-2xl text-xs md:text-sm font-bold transition-all whitespace-nowrap ${
+                    activeTab === tab.id 
+                      ? 'bg-slate-900 text-white shadow-lg' 
+                      : 'text-slate-400 hover:text-slate-600'
+                  }`}
+                >
+                  <tab.icon className="w-4 h-4" />
+                  {tab.label}
+                </button>
+              ))}
+            </div>
           </nav>
         </header>
 
@@ -108,41 +110,41 @@ const AdminDashboard = () => {
                   <h3 className="text-xl font-bold text-slate-400">No pending submissions</h3>
                 </div>
               ) : (
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
                    {submissions.map((sub) => (
                      <div 
                         key={sub.id} 
-                        className="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm space-y-6 flex flex-col animate-scale-in"
+                        className="bg-white p-6 md:p-8 rounded-[1.5rem] md:rounded-[2rem] border border-slate-100 shadow-sm space-y-4 md:space-y-6 flex flex-col animate-scale-in"
                      >
                        <div className="flex justify-between items-start">
-                         <div className="flex gap-2">
+                         <div className="flex flex-wrap gap-2">
                            <span className="bg-sage-50 text-sage-600 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider">{sub.type}</span>
                            <span className="bg-dusk-50 text-dusk-600 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider">{sub.population}</span>
                            <span className="bg-slate-50 text-slate-500 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider">{sub.time}m</span>
                          </div>
-                         <a href={sub.url} target="_blank" rel="noopener" className="p-2 bg-slate-50 rounded-xl hover:bg-sage-50 hover:text-sage-600 transition-colors">
+                         <a href={sub.url} target="_blank" rel="noopener" className="p-2 bg-slate-50 rounded-xl hover:bg-sage-50 hover:text-sage-600 transition-colors shrink-0">
                            <ExternalLink className="w-5 h-5" />
                          </a>
                        </div>
                        
                        <div>
-                         <h3 className="text-xl font-black text-slate-900 mb-2">{sub.title}</h3>
-                         <p className="text-slate-500 text-sm bg-slate-50 p-4 rounded-2xl italic">
+                         <h3 className="text-lg md:text-xl font-black text-slate-900 mb-2 leading-tight">{sub.title}</h3>
+                         <p className="text-slate-500 text-sm bg-slate-50 p-3 md:p-4 rounded-xl md:rounded-2xl italic">
                            " {sub.why_helpful} "
                          </p>
                        </div>
 
-                       <div className="flex gap-3 mt-auto pt-4 border-t border-slate-50">
+                       <div className="flex flex-col sm:flex-row gap-3 mt-auto pt-4 border-t border-slate-50">
                          <button 
                             onClick={() => handleApprove(sub.id)}
-                            className="flex-1 bg-sage-500 text-white py-3 rounded-2xl font-bold flex items-center justify-center gap-2 hover:bg-sage-600 transition-all active:scale-95"
+                            className="flex-1 bg-sage-500 text-white py-3 rounded-xl md:rounded-2xl font-bold flex items-center justify-center gap-2 hover:bg-sage-600 transition-all active:scale-95"
                          >
                            <CheckCircle2 className="w-5 h-5" />
                            Approve
                          </button>
                          <button 
                             onClick={() => handleReject(sub.id)}
-                            className="flex-1 bg-red-50 text-red-600 py-3 rounded-2xl font-bold flex items-center justify-center gap-2 hover:bg-red-100 transition-all active:scale-95"
+                            className="flex-1 bg-red-50 text-red-600 py-3 rounded-xl md:rounded-2xl font-bold flex items-center justify-center gap-2 hover:bg-red-100 transition-all active:scale-95"
                          >
                            <XCircle className="w-5 h-5" />
                            Reject
@@ -158,46 +160,81 @@ const AdminDashboard = () => {
           {activeTab === 'add' && <AdminAddForm onSuccess={() => setActiveTab('manage')} />}
 
           {activeTab === 'manage' && (
-             <div className="bg-white rounded-[2rem] border border-slate-100 shadow-sm overflow-hidden animate-scale-in">
-               <table className="w-full text-left">
-                 <thead className="bg-slate-50 border-b border-slate-100">
-                   <tr>
-                     <th className="px-8 py-5 text-sm font-black text-slate-500 uppercase tracking-wider">Resource</th>
-                     <th className="px-8 py-5 text-sm font-black text-slate-500 uppercase tracking-wider">Population</th>
-                     <th className="px-8 py-5 text-sm font-black text-slate-500 uppercase tracking-wider">Actions</th>
-                   </tr>
-                 </thead>
-                 <tbody className="divide-y divide-slate-50">
-                   {resources?.map((res) => (
-                     <tr key={res.id} className="hover:bg-slate-50/50 transition-colors">
-                       <td className="px-8 py-6">
-                         <div className="font-bold text-slate-900">{res.title}</div>
-                         <div className="text-xs text-slate-400 mt-1 flex items-center gap-2">
-                            <span className="uppercase">{res.type}</span> • {res.time}m
-                         </div>
-                       </td>
-                       <td className="px-8 py-6">
-                         <span className="bg-dusk-50 text-dusk-600 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider">
+             <div className="space-y-4">
+               {/* Mobile List View */}
+               <div className="grid grid-cols-1 gap-4 md:hidden">
+                 {resources?.map((res) => (
+                   <div key={res.id} className="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm flex flex-col gap-4 animate-scale-in">
+                      <div className="flex justify-between items-start">
+                        <div className="space-y-1">
+                          <h3 className="font-bold text-slate-900 leading-tight">{res.title}</h3>
+                          <div className="text-[10px] text-slate-400 uppercase font-black tracking-widest flex items-center gap-2">
+                             {res.type} • {res.time}m
+                          </div>
+                        </div>
+                        <span className="bg-dusk-50 text-dusk-600 px-2 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider">
                            {res.population}
                          </span>
-                       </td>
-                       <td className="px-8 py-6 text-right">
-                         <div className="flex items-center gap-2">
-                           <a href={res.url} target="_blank" rel="noopener" className="p-2 text-slate-300 hover:text-dusk-500 transition-colors">
-                             <LinkIcon className="w-5 h-5" />
-                           </a>
-                           <button 
-                            onClick={() => handleDeleteResource(res.id)}
-                            className="p-2 text-slate-300 hover:text-red-500 transition-colors"
-                           >
-                             <Trash2 className="w-5 h-5" />
-                           </button>
-                         </div>
-                       </td>
+                      </div>
+                      <div className="flex items-center gap-2 pt-3 border-t border-slate-50">
+                        <a href={res.url} target="_blank" rel="noopener" className="flex-1 bg-slate-50 text-slate-600 py-2.5 rounded-xl font-bold text-xs flex items-center justify-center gap-2">
+                           <LinkIcon className="w-4 h-4" />
+                           Visit
+                        </a>
+                        <button 
+                          onClick={() => handleDeleteResource(res.id)}
+                          className="flex-1 bg-red-50 text-red-600 py-2.5 rounded-xl font-bold text-xs flex items-center justify-center gap-2"
+                        >
+                           <Trash2 className="w-4 h-4" />
+                           Delete
+                        </button>
+                      </div>
+                   </div>
+                 ))}
+               </div>
+
+               {/* Desktop Table View */}
+               <div className="hidden md:block bg-white rounded-[2rem] border border-slate-100 shadow-sm overflow-hidden animate-scale-in">
+                 <table className="w-full text-left">
+                   <thead className="bg-slate-50 border-b border-slate-100">
+                     <tr>
+                       <th className="px-8 py-5 text-sm font-black text-slate-500 uppercase tracking-wider">Resource</th>
+                       <th className="px-8 py-5 text-sm font-black text-slate-500 uppercase tracking-wider">Population</th>
+                       <th className="px-8 py-5 text-sm font-black text-slate-500 uppercase tracking-wider">Actions</th>
                      </tr>
-                   ))}
-                 </tbody>
-               </table>
+                   </thead>
+                   <tbody className="divide-y divide-slate-50">
+                     {resources?.map((res) => (
+                       <tr key={res.id} className="hover:bg-slate-50/50 transition-colors">
+                         <td className="px-8 py-6">
+                           <div className="font-bold text-slate-900">{res.title}</div>
+                           <div className="text-xs text-slate-400 mt-1 flex items-center gap-2">
+                              <span className="uppercase">{res.type}</span> • {res.time}m
+                           </div>
+                         </td>
+                         <td className="px-8 py-6">
+                           <span className="bg-dusk-50 text-dusk-600 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider">
+                             {res.population}
+                           </span>
+                         </td>
+                         <td className="px-8 py-6 text-right">
+                           <div className="flex items-center gap-2">
+                             <a href={res.url} target="_blank" rel="noopener" className="p-2 text-slate-300 hover:text-dusk-500 transition-colors">
+                               <LinkIcon className="w-5 h-5" />
+                             </a>
+                             <button 
+                              onClick={() => handleDeleteResource(res.id)}
+                              className="p-2 text-slate-300 hover:text-red-500 transition-colors"
+                             >
+                               <Trash2 className="w-5 h-5" />
+                             </button>
+                           </div>
+                         </td>
+                       </tr>
+                     ))}
+                   </tbody>
+                 </table>
+               </div>
              </div>
           )}
         </main>
@@ -223,14 +260,14 @@ const AdminAddForm = ({ onSuccess }) => {
   };
 
   return (
-    <div className="max-w-2xl mx-auto bg-white p-12 rounded-[2.5rem] border border-slate-100 shadow-xl shadow-slate-200/50 animate-scale-in">
+    <div className="max-w-2xl mx-auto bg-white p-8 md:p-12 rounded-[2rem] md:rounded-[2.5rem] border border-slate-100 shadow-xl shadow-slate-200/50 animate-scale-in">
       <div className="flex items-center gap-4 mb-8">
         <div className="bg-sage-500 p-3 rounded-2xl text-white">
           <PlusCircle className="w-8 h-8" />
         </div>
         <div>
-          <h2 className="text-3xl font-black text-slate-900 tracking-tight">New Resource</h2>
-          <p className="text-slate-500 font-medium">Upload verified content directly.</p>
+          <h2 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tight">New Resource</h2>
+          <p className="text-slate-500 font-medium text-sm">Upload verified content directly.</p>
         </div>
       </div>
 
@@ -245,7 +282,7 @@ const AdminAddForm = ({ onSuccess }) => {
           <input required type="url" className="w-full px-4 py-3 bg-slate-50 border border-slate-100 rounded-2xl outline-none focus:ring-2 focus:ring-sage-200" 
             value={formData.url} onChange={e => setFormData({...formData, url: e.target.value})} />
         </div>
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="space-y-2">
             <label className="text-sm font-bold text-slate-700">Type</label>
             <select className="w-full px-4 py-3 bg-slate-50 border border-slate-100 rounded-2xl text-sm font-bold text-slate-600 appearance-none outline-none focus:ring-2 focus:ring-sage-200"
